@@ -1,0 +1,13 @@
+server:
+  port: 8443
+  http-port: 8443
+spring:
+  datasource:
+      source: mysql
+      url: jdbc:mysql://124.222.188.137:3306/sys
+      driverClass: com.mysql.jdbc.Driver
+      username: root
+      password: root
+      mapping: mapping/mysql/**/*.xml
+  mybatis:
+    mapper-locations:classpath:com/evan/mt/**/mapper/*Mapper.xml:
