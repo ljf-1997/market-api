@@ -1,5 +1,7 @@
 package com.evan.ma.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.BeanUtils;
 import com.evan.ma.entity.Result;
 import com.evan.ma.entity.User;
 import com.evan.ma.setvice.LoginService;
@@ -11,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 import java.util.Map;
 
 @RestController
-public class LoginController {
+public class LoginController{
 
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -27,7 +28,9 @@ public class LoginController {
         Result result = new Result();
         String userName = String.valueOf(map.get("username"));
         String passWord = String.valueOf(map.get("password"));
-        User user = loginService.login(userName, passWord);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("username",userName).eq("password",passWord);
+        User user = loginService.getOne(queryWrapper);
         if (user == null) {
             result.setData(user);
             result.setCode(0);

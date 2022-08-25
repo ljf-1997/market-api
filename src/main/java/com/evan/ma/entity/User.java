@@ -1,16 +1,20 @@
 package com.evan.ma.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
 
 @Data
-@Table(name = "sys_user")
-public class User {
+@TableName("sys_user")
+public class User implements Serializable {
     @Id
-    private Long id;
+    private String id;
+    @TableField("username")
     private String userName;
+    @TableField("password")
     private String passWord;
     private Integer status;
 }

@@ -5,6 +5,5 @@ import com.evan.ma.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface LoginMapper extends BaseMapper<User> {
-    User login(String userName, String passWord);
+public interface RegisterMapper extends BaseMapper<User> {
 }
