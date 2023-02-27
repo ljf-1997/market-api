@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 public interface LoginService extends IService<User> {
     User login(String userName, String passWord);
 
+    User getUserInfo(String username);
 }

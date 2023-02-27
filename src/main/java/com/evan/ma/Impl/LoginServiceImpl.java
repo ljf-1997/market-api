@@ -16,4 +16,9 @@ public class LoginServiceImpl extends ServiceImpl<LoginMapper,User> implements L
     public User login(String userName, String passWord) {
         return loginMapper.login(userName, passWord);
     }
+
+    @Override
+    public User getUserInfo(String username){
+        return loginMapper.getUserInfoByUsername(username);
+    }
 }

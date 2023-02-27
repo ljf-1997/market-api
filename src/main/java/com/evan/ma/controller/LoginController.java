@@ -1,16 +1,13 @@
 package com.evan.ma.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.BeanUtils;
 import com.evan.ma.entity.Result;
 import com.evan.ma.entity.User;
 import com.evan.ma.setvice.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -42,5 +39,10 @@ public class LoginController{
             session.setAttribute("user",user);
         }
         return result;
+    }
+
+    @GetMapping("/get-user")
+    public User getUser(@RequestParam String username){
+        return loginService.getUserInfo(username);
     }
 }
