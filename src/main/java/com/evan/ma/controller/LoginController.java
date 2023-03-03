@@ -3,16 +3,21 @@ package com.evan.ma.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.evan.ma.entity.Result;
 import com.evan.ma.entity.User;
-import com.evan.ma.setvice.LoginService;
+import com.evan.ma.service.LoginService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @RestController
+@Api(tags = "用户接口")
+@Controller("user")
 public class LoginController{
 
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -21,6 +26,7 @@ public class LoginController{
     private LoginService loginService;
 
     @PostMapping("/login")
+    @ApiOperation("用户登录")
     public Result login(@RequestBody Map map, HttpSession session) {
         Result result = new Result();
         String userName = String.valueOf(map.get("username"));
@@ -42,6 +48,7 @@ public class LoginController{
     }
 
     @GetMapping("/get-user")
+    @ApiOperation("用户信息")
     public User getUser(@RequestParam String username){
         return loginService.getUserInfo(username);
     }

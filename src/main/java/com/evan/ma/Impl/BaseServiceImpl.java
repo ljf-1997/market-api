@@ -2,7 +2,7 @@ package com.evan.ma.Impl;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.evan.ma.setvice.BaseService;
+import com.evan.ma.service.BaseService;
 
 import java.io.Serializable;
 

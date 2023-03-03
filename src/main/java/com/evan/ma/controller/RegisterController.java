@@ -2,10 +2,8 @@ package com.evan.ma.controller;
 
 import com.evan.ma.entity.Result;
 import com.evan.ma.entity.User;
-import com.evan.ma.setvice.BaseService;
-import com.evan.ma.setvice.RegisterService;
+import com.evan.ma.service.RegisterService;
 import com.evan.ma.utils.KeyUtil;
-import com.evan.ma.utils.SpringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
